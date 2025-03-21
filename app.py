@@ -14,7 +14,7 @@ CORS(app)
 logging.basicConfig(level=logging.DEBUG)
 
 # Initialize OpenAI Client
-openai_api_key = os.getenv("OPENAI_API_KEY") # Replace with your API key
+openai_api_key = os.getenv("OPENAI_API_KEY")
 llm = ChatOpenAI(openai_api_key=openai_api_key, model_name="gpt-4o")
 
 # Store chat history per user (temporary, should use a database in production)
