@@ -2,10 +2,11 @@ from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import logging
 import os
+from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
 from langchain_core.runnables import RunnableWithMessageHistory
-
+load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
@@ -13,7 +14,7 @@ CORS(app)
 logging.basicConfig(level=logging.DEBUG)
 
 # Initialize OpenAI Client
-openai_api_key = "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"  # Replace with your API key
+openai_api_key = os.getenv("OPENAI_API_KEY") # Replace with your API key
 llm = ChatOpenAI(openai_api_key=openai_api_key, model_name="gpt-4o")
 
 # Store chat history per user (temporary, should use a database in production)
