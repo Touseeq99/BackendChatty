@@ -13,7 +13,6 @@ CORS(app)
 # Enable detailed logging
 logging.basicConfig(level=logging.DEBUG)
 
-# Initialize OpenAI Client
 openai_api_key = os.getenv("OPENAI_API_KEY")
 llm = ChatOpenAI(openai_api_key=openai_api_key, model_name="gpt-4o")
 
