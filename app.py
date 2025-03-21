@@ -5,17 +5,14 @@ import os
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.schema import SystemMessage, HumanMessage
-from langchain_core.runnables import RunnableWithMessageHistory
 load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-# Enable detailed logging
 logging.basicConfig(level=logging.DEBUG)
 
 llm = ChatOpenAI(openai_api_key=os.getenv("OPENAI_API_KEY"), model_name="gpt-4o")
 
-# Store chat history per user (temporary, should use a database in production)
 user_memory = {}
 
 # Define chatbot profiles
