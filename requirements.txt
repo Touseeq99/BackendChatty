@@ -1,0 +1,7 @@
+flask
+flask_cors
+langchain
+langchain_community
+openai
+langchain_openai
+gunicorn
